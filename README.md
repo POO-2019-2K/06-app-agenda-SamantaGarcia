@@ -1,5 +1,7 @@
 # Ejercicio 6 La Agenda
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/ddf0a3b7890942e6b73a027d4ccae3e5)](https://www.codacy.com/app/SamantaGarcia/06-app-agenda-SamantaGarcia?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=POO-2019-2K/06-app-agenda-SamantaGarcia&amp;utm_campaign=Badge_Grade)
+
+[![codebeat badge](https://codebeat.co/badges/155fe491-74c0-40e1-bd9d-73f1d456e637)](https://codebeat.co/projects/github-com-poo-2019-2k-06-app-agenda-samantagarcia-master)
 ## Tiempo para realizar la actividad
 
 6 Horas
