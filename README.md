@@ -1,5 +1,4 @@
 # Ejercicio 6 La Agenda
-
 ## Tiempo para realizar la actividad
 
 6 Horas
