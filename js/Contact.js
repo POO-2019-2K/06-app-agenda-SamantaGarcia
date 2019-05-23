@@ -1,9 +1,10 @@
 export default class Contact {
-    constructor(schedule){
-        this._name = schedule.name;
-        this._lastname = schedule.lastname;
-        this._birthday = new Date(schedule.birthday);
-        this._phone = schedule.phone;
+    constructor(contact){
+        this._id = contact.id;
+        this._name = contact.name;
+        this._lastname = contact.lastname;
+        this._birthday = new Date(contact.birthday);
+        this._phone = contact.phone;
         this._months = [
             "Ene",
             "Feb",
@@ -20,6 +21,9 @@ export default class Contact {
         ];
     }
 
+    get id(){
+        return this._id;
+    }
     get name(){
         return this._name;
     }
@@ -50,7 +54,7 @@ export default class Contact {
         return date;
     }
     //Fecha para cumpleaños 
-    getFechaBirthAsString() {
+    getBirthAsString() {
         let date =
         this._birthday.getDate() +
         "/" +
