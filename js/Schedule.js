@@ -15,8 +15,9 @@ export default class Schedule{
         }
         lsContacts.forEach((e, index) =>{
             e.birthday = new Date (e.birthday);
-            this._addTable(new Contact(e));
+            this._showInTable(new Contact(e));
         });
+        console.log(lsContacts);
     }
 
     _showInTable(contact){
@@ -24,20 +25,22 @@ export default class Schedule{
         let cellName = row.insertCell(0);
         let cellLastname = row.insertCell(1);
         let cellBirthday = row.insertCell(2);
-        let cellPhone = row.insertCell(3);
-        row.insertCell(4);
+        let cellAge = row.insertCell(3);
+        let cellPhone = row.insertCell(4);
+        row.insertCell(5);
 
         cellName.innerHTML = contact.name;
         cellLastname.innerHTML = contact.lastname;
         cellBirthday.innerHTML = contact.getBirthAsString();
+        cellAge.innerHTML = contact.getAge();
         cellPhone.innerHTML = contact.phone;
 
         let objSchedule = {
             id : id,
-            name : schedule.name,
-            lastname : schedule.lastname,
-            birthday : schedule.birthday,
-            phone : schedule.phone
+            name : contact.name,
+            lastname : contact.lastname,
+            birthday : contact.birthday,
+            phone : contact.phone
         };
         this._contacts.push(objSchedule);
        // this._addButtons(row, contact);
@@ -65,6 +68,6 @@ export default class Schedule{
             return;
         }
         this._showInTable(contact);
-        localStorage.setItem("Contacts", JSON.parse(this._contacts));
+        localStorage.setItem("Contacts", JSON.stringify(this._contacts));
     }
 }

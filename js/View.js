@@ -10,11 +10,12 @@ class View{
         let form = document.querySelector("#form");
 
         if (form.checkValidity() === true) {
-            let id = document.querySelector("#category").value;
+            let id = document.querySelector("#id").value;
             let name = document.querySelector("#name").value;
             let lastname = document.querySelector("#lastname").value;
-            let birthday = document.querySelector("#birthday").value;
-            birthday = birthday.split("-");
+            let sBirthday = document.querySelector("#birthday").value;
+            sBirthday = sBirthday.split("-");
+            let birthday = new Date(sBirthday[0], sBirthday[1] - 1, sBirthday[2]);
             let phone = document.querySelector("#phone").value;
 
             let objSchedule = {
