@@ -4,7 +4,7 @@ export default class Schedule{
     constructor(scheduleTable){
         this.scheduleTable = scheduleTable;
         this._contacts = [];
-
+        
         this._initTable();
         
         
@@ -13,7 +13,7 @@ export default class Schedule{
     _initTable(){
         //localStorage.removeItem("Contacts");
         
-        let lsContacts = JSON.parse(localStorage.getItem("Contacts"));
+        var lsContacts = JSON.parse(localStorage.getItem("Contacts"));
         if (lsContacts === null) {
             return;
         }
@@ -23,6 +23,10 @@ export default class Schedule{
         });
         console.log(lsContacts);
 
+        
+    }
+
+    _sortContacts(a, b){
         
     }
 
@@ -66,10 +70,12 @@ export default class Schedule{
           })
           this._showInTable(contact);
         localStorage.setItem("Contacts", JSON.stringify(this._contacts));
+    
+        
     }
 
     _showInTable(contact){
-        
+
         localStorage.setItem("current", contact.id);
         let idCategory= localStorage.getItem("current");
         if (contact.id === idCategory) {           
@@ -88,8 +94,11 @@ export default class Schedule{
         cellAge.innerHTML = contact.getAge();
         cellPhone.innerHTML = contact.phone;
         this._addButtons(row, contact);
+        // this._contacts.sort(function (a, b){   
+        // console.log(ageC);         
+        //     return (a.birthday - b.birthday)
+        // })
     }
-
         let objSchedule = {
             id : contact.id,
             name : contact.name,
@@ -98,8 +107,15 @@ export default class Schedule{
             phone : contact.phone
         };
         this._contacts.push(objSchedule);
-        
-        
+
+        // this._contacts.sort(function (a, b) {
+        //     return a[name] < b[name];
+        //  });
+        this._contacts.sort(function(a,b){
+            // Turn your strings into dates, and then subtract them
+            // to get a value that is either negative, positive, or zero.
+            return new Date(b.birthday) - new Date(a.birthday);
+          });
         
     }
 
